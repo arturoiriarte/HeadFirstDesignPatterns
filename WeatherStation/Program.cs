@@ -1,5 +1,6 @@
 ﻿using System;
 using WeatherStation.Displays;
+using WeatherStation.Entities;
 using WeatherStation.Subject;
 
 namespace WeatherStation
@@ -9,14 +10,22 @@ namespace WeatherStation
         public static void Main(string[] args)
         {
             //Subject
-            WeatherData data = new WeatherData();
+            WeatherProvider data = new WeatherProvider();
 
             //Observer
-            CurrentConditionsDisplay currentConditionsDisplay = new CurrentConditionsDisplay(data);
+            CurrentConditionsDisplay currentConditionsDisplay = new CurrentConditionsDisplay();
+            ForecastDisplay forecastDisplay = new ForecastDisplay();
+            forecastDisplay.Subscribe(data);
 
-            data.setMeasurements(80, 65, 30.4f);
-            data.setMeasurements(82, 70, 29.2f);
-            data.setMeasurements(78, 90, 30.1f);
+            data.SetMeasurements(new WeatherModel{ Temperature = 95, Humidity = 65, Pressure = 30.4f });
+            currentConditionsDisplay.Subscribe(data);
+            data.SetMeasurements(new WeatherModel { Temperature = 82, Humidity = 70, Pressure = 29.2f });
+            currentConditionsDisplay.Unsubscribe();
+            data.SetMeasurements(new WeatherModel { Temperature = 32, Humidity = 90, Pressure = 30.1f });
+
+            data.EndTransmission();
+            Console.WriteLine("<<Stop transmission>>");
+            data.SetMeasurements(new WeatherModel { Temperature = 32, Humidity = 90, Pressure = 30.1f });
         }
     }
 }

@@ -5,13 +5,18 @@ using WeatherStation.Entities;
 
 namespace WeatherStation.Displays
 {
-    public class CurrentConditionsDisplay : IObserver<WeatherModel>, IDisplay
+    public class ForecastDisplay : IObserver<WeatherModel>, IDisplay
     {
         private IDisposable unsubscriber;
 
         public void Display(WeatherModel model)
         {
-            Console.WriteLine($"Current conditions: {model.Temperature}F degrees and {model.Humidity}% humidity");
+            if (model.Temperature > 90)
+                Console.WriteLine("Stay home, it's hot outside");
+            else if (model.Temperature <= 32)
+                Console.WriteLine($"It's freezing!!");
+            else
+                Console.WriteLine("Nice sunny day");
         }
 
         public void OnCompleted()
@@ -21,7 +26,7 @@ namespace WeatherStation.Displays
 
         public void OnError(Exception error)
         {
-            Console.WriteLine("Current condition Unknown error");
+            Console.WriteLine("Forecast Unknown error");
         }
 
         public void OnNext(WeatherModel value)

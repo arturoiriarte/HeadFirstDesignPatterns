@@ -6,6 +6,6 @@ namespace WeatherStation.Entities
 {
     public interface IDisplay
     {
-        public void display();
+        public void Display(WeatherModel model);
     }
 }
