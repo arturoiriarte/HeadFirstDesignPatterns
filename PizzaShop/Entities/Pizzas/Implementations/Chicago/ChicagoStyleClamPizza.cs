@@ -6,24 +6,14 @@ namespace PizzaShop.Entities.Pizzas.Implementations.Chicago
 {
     public class ChicagoStyleClamPizza : Pizza
     {
-        public override void Prepare()
+        public ChicagoStyleClamPizza()
         {
-            Console.WriteLine("<<Chicago Style Preparing>>");
-        }
-
-        public override void Bake()
-        {
-            Console.WriteLine("<<Chicago Style Baking>>");
+            Name = "Chicago Style Clam Pizza";
         }
 
         public override void Cut()
         {
-            Console.WriteLine("<<Chicago Style Cutting>>");
-        }
-
-        public override void Box()
-        {
-            Console.WriteLine("<<Chicago Style Boxing>>");
+            Console.WriteLine("<<Chicago square Style Cutting>>");
         }
     }
 }

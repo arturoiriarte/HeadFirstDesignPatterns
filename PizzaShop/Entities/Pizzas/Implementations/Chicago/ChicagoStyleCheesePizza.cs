@@ -6,24 +6,18 @@ namespace PizzaShop.Entities.Pizzas.Implementations.Chicago
 {
     public class ChicagoStyleCheesePizza : Pizza
     {
-        public override void Prepare()
+        public ChicagoStyleCheesePizza()
         {
-            Console.WriteLine("<<Chicago Style Preparing>>");
-        }
+            Name = "Chicago Style Deep Dish Cheese Pizza"; 
+            Dough = "Extra Thick Crust Dough"; 
+            Sauce = "Plum Tomato Sauce";
 
-        public override void Bake()
-        {
-            Console.WriteLine("<<Chicago Style Baking>>");
+            Toppings.Add("Shredded Mozzarella Cheese");
         }
 
         public override void Cut()
         {
-            Console.WriteLine("<<Chicago Style Cutting>>");
-        }
-
-        public override void Box()
-        {
-            Console.WriteLine("<<Chicago Style Boxing>>");
+            Console.WriteLine("<<Chicago square Style Cutting>>");
         }
     }
 }
