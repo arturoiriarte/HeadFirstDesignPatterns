@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PizzaShop.Entities
+namespace PizzaShop.Entities.Pizzas
 {
     public abstract class Pizza
     {

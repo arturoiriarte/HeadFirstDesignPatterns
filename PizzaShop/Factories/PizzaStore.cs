@@ -1,25 +1,18 @@
 ﻿using PizzaShop.Entities;
-using PizzaShop.Factory;
+using PizzaShop.Entities.Pizzas;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace PizzaShop
+namespace PizzaShop.Entities.Factories
 {
-    public class PizzaStore
+    public abstract class PizzaStore
     {
-        SimplePizzaFactory factory;
-
-        public PizzaStore(SimplePizzaFactory factory)
-        {
-            this.factory = factory;
-        }
-
         public Pizza OrderPizza(PizzaType type)
         {
             Pizza pizza;
 
-            pizza = factory.CreatePizza(type);
+            pizza = CreatePizza(type);
 
             pizza.Prepare();
             pizza.Bake();
@@ -28,5 +21,7 @@ namespace PizzaShop
 
             return pizza;
         }
+
+        protected abstract Pizza CreatePizza(PizzaType type);
     }
 }

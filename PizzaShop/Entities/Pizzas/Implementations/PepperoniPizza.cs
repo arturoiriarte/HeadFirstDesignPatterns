@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PizzaShop.Entities.Implementations
+namespace PizzaShop.Entities.Pizzas.Implementations
 {
-    public class VeggiePizza : Pizza
+    public class PepperoniPizza : Pizza
     {
         public override void Prepare()
         {

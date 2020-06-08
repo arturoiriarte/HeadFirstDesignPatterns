@@ -1,5 +1,7 @@
 ﻿using PizzaShop.Entities;
-using PizzaShop.Factory;
+using PizzaShop.Entities.Pizzas;
+using PizzaShop.Entities.Factories;
+using PizzaShop.Entities.Factories.Implementations;
 using System;
 
 namespace PizzaShop
@@ -8,9 +10,8 @@ namespace PizzaShop
     {
         static void Main(string[] args)
         {
-            SimplePizzaFactory factory = new SimplePizzaFactory();
-            PizzaStore store = new PizzaStore(factory);
-            Pizza pizza = store.OrderPizza(PizzaType.Cheese);
+            PizzaStore store = new NYPizzaStore();
+            store.OrderPizza(PizzaType.Cheese);
         }
     }
 }
