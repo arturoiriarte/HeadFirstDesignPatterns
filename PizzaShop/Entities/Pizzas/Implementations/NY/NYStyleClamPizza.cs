@@ -8,22 +8,22 @@ namespace PizzaShop.Entities.Pizzas.Implementations.NY
     {
         public override void Prepare()
         {
-            Console.WriteLine("<<<NY Style Preparing>>");
+            Console.WriteLine("<<NY Style Preparing>>");
         }
 
         public override void Bake()
         {
-            Console.WriteLine("<<<NY Style Baking>>");
+            Console.WriteLine("<<NY Style Baking>>");
         }
 
         public override void Cut()
         {
-            Console.WriteLine("<<<NY Style Cutting>>");
+            Console.WriteLine("<<NY Style Cutting>>");
         }
 
         public override void Box()
         {
-            Console.WriteLine("<<<NY Style Boxing>>");
+            Console.WriteLine("<<NY Style Boxing>>");
         }
     }
 }
