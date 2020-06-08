@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PizzaShop.Factories;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,9 +7,20 @@ namespace PizzaShop.Entities.Pizzas.Implementations.Chicago
 {
     public class ChicagoStyleClamPizza : Pizza
     {
-        public ChicagoStyleClamPizza()
+        PizzaIngredientFactory ingredientFactory;
+        public ChicagoStyleClamPizza(PizzaIngredientFactory ingredientFactory)
         {
+            this.ingredientFactory = ingredientFactory;
+
             Name = "Chicago Style Clam Pizza";
+        }
+
+        public override void Prepare()
+        {
+            Console.WriteLine($"Preparing {Name}");
+            Dough = ingredientFactory.CreateDough();
+            Sauce = ingredientFactory.CreateSauce();
+            Cheese = ingredientFactory.CreateCheese();
         }
 
         public override void Cut()

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PizzaShop.Factories;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,13 +7,21 @@ namespace PizzaShop.Entities.Pizzas.Implementations.Chicago
 {
     public class ChicagoStyleCheesePizza : Pizza
     {
-        public ChicagoStyleCheesePizza()
-        {
-            Name = "Chicago Style Deep Dish Cheese Pizza"; 
-            Dough = "Extra Thick Crust Dough"; 
-            Sauce = "Plum Tomato Sauce";
+        PizzaIngredientFactory ingredientFactory;
 
-            Toppings.Add("Shredded Mozzarella Cheese");
+        public ChicagoStyleCheesePizza(PizzaIngredientFactory ingredientFactory)
+        {
+            this.ingredientFactory = ingredientFactory;
+
+            Name = "Chicago Style Deep Dish Cheese Pizza";
+        }
+
+        public override void Prepare()
+        {
+            Console.WriteLine($"Preparing {Name}");
+            Dough = ingredientFactory.CreateDough();
+            Sauce = ingredientFactory.CreateSauce();
+            Cheese = ingredientFactory.CreateCheese();
         }
 
         public override void Cut()

@@ -1,7 +1,6 @@
 ﻿using PizzaShop.Entities;
 using PizzaShop.Entities.Pizzas;
 using PizzaShop.Entities.Factories;
-using PizzaShop.Entities.Factories.Implementations;
 using System;
 using PizzaShop.Factories.Implementations;
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PizzaShop.Entities.Ingredients;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,8 +8,9 @@ namespace PizzaShop.Entities.Pizzas
     public abstract class Pizza
     {
         protected string Name { get; set; } = "Unknown pizza";
-        protected string Dough { get; set; } = "Unknown dough";
-        protected string Sauce { get; set; } = "Unknown sauce";
+        protected Dough Dough { get; set; }
+        protected Sauce Sauce { get; set; }
+        protected Cheese Cheese { get; set; }
 
         protected List<string> Toppings { get; set; }
 
@@ -17,17 +19,8 @@ namespace PizzaShop.Entities.Pizzas
             Toppings = new List<string>();
         }
 
-        public virtual void Prepare()
-        {
-            Console.WriteLine($"Preparing {Name}");
-            Console.WriteLine($"Tossing dough...");
-            Console.WriteLine($"Adding sauce...");
-            Console.WriteLine($"Adding toppings: ");
-            foreach (var topping in Toppings)
-            {
-                Console.WriteLine($"    {topping}");
-            }
-        }
+        public abstract void Prepare();
+
         public virtual void Bake()
         {
             Console.WriteLine($"Bake for 25 minutes at 350");
